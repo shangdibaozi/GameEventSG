@@ -11,15 +11,15 @@ namespace GameEventGenerator
     public class GameEventGenerator : ISourceGenerator
     {
         private const string attributeText = @"
-namespace GameEventGenerator
-{
-    public interface IEventAttribute { }
-}
+/// <summary>
+/// static event attribute interface.
+/// </summary>
+public interface IStaticEventAttribute { }
 ";
         
         public void Initialize(GeneratorInitializationContext context)
         {
-            context.RegisterForPostInitialization(i => i.AddSource("IEventAttribute.g.cs", SourceText.From(attributeText, Encoding.UTF8)));
+            context.RegisterForPostInitialization(i => i.AddSource("IStaticEventAttribute.g.cs", SourceText.From(attributeText, Encoding.UTF8)));
             // Register our custom syntax receiver
             context.RegisterForSyntaxNotifications(() => new EventSyntaxReceiver());
         }
@@ -32,7 +32,7 @@ namespace GameEventGenerator
                 return;
 
             // Get the IEventAttribute symbol
-            INamedTypeSymbol eventAttributeInterface = context.Compilation.GetTypeByMetadataName("GameEventGenerator.IEventAttribute");
+            INamedTypeSymbol eventAttributeInterface = context.Compilation.GetTypeByMetadataName("IStaticEventAttribute");
             if (eventAttributeInterface == null)
                 return;
 
