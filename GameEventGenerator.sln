@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameEventGenerator", "GameEventGenerator.csproj", "{7E344D9F-7673-47A4-B94C-FC18343B0CEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E344D9F-7673-47A4-B94C-FC18343B0CEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E344D9F-7673-47A4-B94C-FC18343B0CEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E344D9F-7673-47A4-B94C-FC18343B0CEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E344D9F-7673-47A4-B94C-FC18343B0CEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E7D81A7-700D-4723-874D-278DAC3CC2B2}
+	EndGlobalSection
+EndGlobal
