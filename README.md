@@ -4,7 +4,7 @@ This C# source generator automatically creates event classes that call methods d
 
 ## Features
 
-- Generates event classes for any attribute implementing `IEventAttribute`
+- Generates event classes for any attribute implementing `IStaticEventAttribute`
 - Automatically collects all static methods decorated with your custom event attributes
 - Creates a single entry point method that calls all collected methods
 
@@ -12,9 +12,7 @@ This C# source generator automatically creates event classes that call methods d
 
 1. **Create an event attribute**:
    ```csharp
-   using GameEventGenerator;
-
-   public class MyCustomEventAttribute : Attribute, IEventAttribute { }
+   public class MyCustomEventAttribute : Attribute, IStaticEventAttribute { }
    ```
 
 2. **Decorate static methods**:
@@ -43,24 +41,3 @@ This C# source generator automatically creates event classes that call methods d
    // Call the generated event
    MyCustomEventEvents.MyCustomEvent();
    ```
-
-## Requirements
-
-- .NET Standard 2.0+
-- Roslyn 4.0.1+
-
-## Installation
-
-1. Reference this project in your solution
-2. Build your project - the generator will automatically create the event classes
-
-## Example
-
-See the included `StartBattleAttribute.cs` for a sample implementation.
-
-## How It Works
-
-1. The generator finds all attributes implementing `IEventAttribute`
-2. For each attribute type, it collects all static methods decorated with that attribute
-3. It generates a class named `{AttributeName}Events` with a method that calls all collected methods
-4. The generated files are placed in the `obj` directory during build
