@@ -24,7 +24,7 @@ public class SwitchAttribute : System.Attribute, IStaticEventAttribute
 {
     public string Name { get; }
 
-    public SwitchAttribute(string)
+    public SwitchAttribute(string name)
     {
         Name = name;
     }
