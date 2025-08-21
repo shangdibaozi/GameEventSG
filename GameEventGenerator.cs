@@ -17,7 +17,10 @@ namespace GameEventGenerator
 public interface IStaticEventAttribute { }
 
 /// <summary>
-/// Switch attribute for skill methods.
+/// 捕获静态方法，加入switch语句中。
+/// name表示要捕获的方法名称前缀。
+/// 被捕获的必须是public静态方法，方法格式必须以：名称_switchId组织
+/// eg.public static void MyMethod_1000() { }
 /// </summary>
 [System.AttributeUsage(System.AttributeTargets.Method)]
 public class SwitchAttribute : System.Attribute, IStaticEventAttribute 
