@@ -3,18 +3,18 @@ using Microsoft.CodeAnalysis;
 namespace GameHelperGenerator
 {
     [Generator]
-    public class GameEventGenerator : ISourceGenerator
+    public class GameHelperGenerator : ISourceGenerator
     {
         public void Initialize(GeneratorInitializationContext context)
         {
             StaticMethodGenerator.Initialize(context);
-            DBGenerator.Initialize(context);
+            context.RegisterForSyntaxNotifications(() => new GameHelperReceiver());
         }
         
         public void Execute(GeneratorExecutionContext context)
         {
-            StaticMethodGenerator.Execute(context);
             DBGenerator.Execute(context);
+            StaticMethodGenerator.Execute(context);
         }
     }
 }

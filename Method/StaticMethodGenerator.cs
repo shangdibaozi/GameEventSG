@@ -35,14 +35,14 @@ public class SwitchAttribute : System.Attribute, IStaticEventAttribute
         {
             context.RegisterForPostInitialization(i => i.AddSource("IStaticEventAttribute.g.cs", SourceText.From(attributeText, Encoding.UTF8)));
             // Register our custom syntax receiver
-            context.RegisterForSyntaxNotifications(() => new StaticMethodSyntaxReceiver());
+            
         }
 
 
         public static void Execute(GeneratorExecutionContext context)
         {
             // Get our registered syntax receiver
-            var receiver = context.SyntaxReceiver as StaticMethodSyntaxReceiver;
+            var receiver = context.SyntaxReceiver as GameHelperReceiver;
             if (receiver == null)
                 return;
 
