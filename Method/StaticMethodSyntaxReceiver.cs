@@ -2,9 +2,9 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Collections.Generic;
 
-namespace GameEventGenerator
+namespace GameHelperGenerator
 {
-    public class EventSyntaxReceiver : ISyntaxReceiver
+    public class StaticMethodSyntaxReceiver : ISyntaxReceiver
     {
         public List<MethodDeclarationSyntax> Methods { get; } = new List<MethodDeclarationSyntax>();
 
