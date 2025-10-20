@@ -7,45 +7,8 @@ namespace GameHelperGenerator
 {
     public static class StaticMethodGenerator
     {
-        private const string attributeText = @"
-/// <summary>
-/// static event attribute interface.
-/// </summary>
-public interface IStaticEventAttribute { }
-
-/// <summary>
-/// 捕获静态方法，加入switch语句中。
-/// name表示要捕获的方法名称前缀。
-/// 被捕获的必须是public静态方法，方法格式必须以：名称_switchId组织
-/// eg.public static void MyMethod_1000() { }
-/// </summary>
-[System.AttributeUsage(System.AttributeTargets.Method)]
-public class SwitchAttribute : System.Attribute, IStaticEventAttribute 
-{
-    public string Name { get; }
-
-    public SwitchAttribute(string name)
-    {
-        Name = name;
-    }
-}
-";
-
-        public static void Initialize(GeneratorInitializationContext context)
+        public static void Execute(GeneratorExecutionContext context, GameHelperReceiver receiver)
         {
-            context.RegisterForPostInitialization(i => i.AddSource("IStaticEventAttribute.g.cs", SourceText.From(attributeText, Encoding.UTF8)));
-            // Register our custom syntax receiver
-            
-        }
-
-
-        public static void Execute(GeneratorExecutionContext context)
-        {
-            // Get our registered syntax receiver
-            var receiver = context.SyntaxReceiver as GameHelperReceiver;
-            if (receiver == null)
-                return;
-
             // Get the IEventAttribute symbol
             var eventAttributeInterface = context.Compilation.GetTypeByMetadataName("IStaticEventAttribute");
             if (eventAttributeInterface == null)

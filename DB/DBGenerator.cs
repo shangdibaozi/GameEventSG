@@ -14,13 +14,8 @@ namespace GameHelperGenerator
             
         }
 
-        public static void Execute(GeneratorExecutionContext context)
+        public static void Execute(GeneratorExecutionContext context, GameHelperReceiver receiver)
         {
-            // Get our registered syntax receiver
-            var receiver = context.SyntaxReceiver as GameHelperReceiver;
-            if (receiver == null)
-                return;
-
             // Group fields by their containing class
             var fieldsByClass = new Dictionary<INamedTypeSymbol, List<IFieldSymbol>>(SymbolEqualityComparer.Default);
 
